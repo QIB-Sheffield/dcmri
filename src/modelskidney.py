@@ -16,8 +16,11 @@ class Aorta(CurveFit):
 
     def function(self, x, p):
 
+        #R1 = self.R1()
+        #self.signal = dcmri.signalSPGRESS(self.TR, p.FA, R1, p.S0)
         R1 = self.R1()
-        self.signal = dcmri.signalSPGRESS(self.TR, p.FA, R1, p.S0)
+        self.signal = dcmri.signal_genflash_with_sat(self.TI, self.TSAT, self.TR, p.FA, R1, p.S0)
+        #self.signal = dcmri.signal_monoExp_aorta(R1, p.S0)
         return dcmri.sample(self.t, self.signal, x, self.tacq)
 
     def parameters(self):
@@ -40,14 +43,16 @@ class Aorta(CurveFit):
     tmax = 40*60.0          # Total acquisition time (sec)
 
     # Default values for experimental parameters
-    tacq = 1.64             # Time to acquire a single datapoint (sec)
+    tacq = 1.61             # Time to acquire a single datapoint (sec)
     field_strength = 3.0    # Field strength (T)
     weight = 70.0           # Patient weight in kg
-    conc = 0.25             # mmol/mL (https://www.bayer.com/sites/default/files/2020-11/primovist-pm-en.pdf)
-    dose = 0.025            # mL per kg bodyweight (quarter dose)
-    rate = 1                # Injection rate (mL/sec)
-    TR = 3.71/1000.0        # Repetition time (sec)
-    FA = 15.0               # Nominal flip angle (degrees)
+    conc = 0.5             # mmol/mL (https://www.bayer.com/sites/default/files/2020-11/primovist-pm-en.pdf) #DOTOREM = 0.5mmol/ml, Gadovist = 1.0mmol/ml 
+    dose = 0.05            # mL per kg bodyweight (quarter dose)
+    rate = 2                # Injection rate (mL/sec)
+    TR = 2.2/1000.0        # Repetition time (sec)
+    FA = 10.0               # Nominal flip angle (degrees)
+    TI = 85/1000
+    TSAT = 25.5/1000
 
     # Physiological parameters
     Hct = 0.45
@@ -83,7 +88,9 @@ class Aorta(CurveFit):
 
     def signal_smooth(self):
         R1 = self.R1()
-        return dcmri.signalSPGRESS(self.TR, self.p.value.FA, R1, self.p.value.S0)
+        #return dcmri.signalSPGRESS(self.TR, self.p.value.FA, R1, self.p.value.S0)
+        return dcmri.signal_genflash_with_sat(self.TI, self.TSAT, self.TR, self.p.value.FA, R1, self.p.value.S0)
+        #return dcmri.signal_monoExp_aorta(R1, self.p.value.S0)
        
     def set_x(self, x):
         self.x = x
@@ -98,10 +105,14 @@ class Aorta(CurveFit):
         BAT = self.x[np.argmax(self.y)]
         baseline = np.nonzero(self.x <= BAT-20)[0]
         n0 = baseline.size
+        n0 = 10
         if n0 == 0: 
             n0 = 1
-        Sref = dcmri.signalSPGRESS(self.TR, self.p.value.FA, self.R10, 1)
+        #Sref = dcmri.signalSPGRESS(self.TR, self.p.value.FA, self.R10, 1)
+        Sref = dcmri.signal_genflash_with_sat(self.TI, self.TSAT, self.TR, self.p.value.FA, self.R10, 1)
+        #Sref = dcmri.signal_monoExp_aorta(self.R10, 1)
         S0 = np.mean(self.y[:n0]) / Sref
+        
         self.p.value.S0 = S0
         self.p.value.BAT = BAT
 
@@ -162,7 +173,9 @@ class Kidney(CurveFit):
     def function(self, x, p):
 
         R1 = self.R1()
-        self.signal = dcmri.signalSPGRESS(self.aorta.TR, p.FA, R1, p.S0)
+        #self.signal = dcmri.signalSPGRESS(self.aorta.TR, p.FA, R1, p.S0)
+        self.signal = dcmri.signal_genflash_with_sat(self.TI, self.TSAT, self.aorta.TR, p.FA, R1, p.S0)
+
         return dcmri.sample(self.aorta.t, self.signal, x, self.aorta.tacq)
 
     def parameters(self):
@@ -187,6 +200,10 @@ class Kidney(CurveFit):
     vp = 0.15         # Kidney plasma volume (mL/mL)
     vt = 0.60         # Kidney tubular volume (mL/mL)
     f = 0.99        # reabsorption fraction
+    TR = 2.2/1000.0        # Repetition time (sec)
+    FA = 10.0               # Nominal flip angle (degrees)
+    TI = 85/1000
+    TSAT = 25.5/1000
 
     @property
     def R10lit(self):
@@ -218,7 +235,9 @@ class Kidney(CurveFit):
     def signal_smooth(self):
 
         R1 = self.R1()
-        return dcmri.signalSPGRESS(self.aorta.TR, self.p.value.FA, R1, self.p.value.S0)
+        #return dcmri.signalSPGRESS(self.aorta.TR, self.p.value.FA, R1, self.p.value.S0)
+        return dcmri.signal_genflash_with_sat(self.TI, self.TSAT, self.aorta.TR, self.p.value.FA, R1, self.p.value.S0)
+
 
     def set_R10(self, t, R1):
         self.R10 = R1
@@ -227,9 +246,11 @@ class Kidney(CurveFit):
 
         baseline = np.nonzero(self.x <= self.aorta.p.value.BAT-5)[0]
         n0 = baseline.size
+        n0 = 5
         if n0 == 0: 
             n0 = 1
-        Sref = dcmri.signalSPGRESS(self.aorta.TR, self.p.value.FA, self.R10, 1)
+        #Sref = dcmri.signalSPGRESS(self.aorta.TR, self.p.value.FA, self.R10, 1)
+        Sref = dcmri.signal_genflash_with_sat(self.TI, self.TSAT, self.aorta.TR, self.p.value.FA, self.R10, 1)
         S0 = np.mean(self.y[:n0]) / Sref
         self.p.value.S0 = S0
 
