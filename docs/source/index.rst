@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to dcmri's documentation!
-=================================
+==================================
 
 ``dcmri`` is a Python interface for reading and writing DICOM databases. 
 
@@ -18,7 +18,6 @@ Welcome to dcmri's documentation!
    :maxdepth: 1
    :caption: Contents:
 
-   readme
    modules
 
 
