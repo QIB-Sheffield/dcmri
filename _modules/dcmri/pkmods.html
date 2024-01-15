@@ -1,0 +1,1488 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dcmri.pkmods &#8212; dcmri 0.6.4 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script src="../../_static/documentation_options.js?v=73d9a94e"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dcmri/pkmods';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/tristan-logo.jpg" class="logo__image only-light" alt="dcmri 0.6.4 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/tristan-logo.jpg" class="logo__image only-dark" alt="dcmri 0.6.4 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorial/index.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../generated/examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../contribute/index.html">
+                        Contribute
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../releases/index.html">
+                        Releases
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/QIB-Sheffield/dcmri" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../tutorial/index.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
+                        Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../generated/examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../contribute/index.html">
+                        Contribute
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../releases/index.html">
+                        Releases
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../../about/index.html">
+                        About
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/QIB-Sheffield/dcmri" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">dcmri.pkmods</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for dcmri.pkmods</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;PK models built from PK blocks defined in dcmri.pk&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">dcmri.pk</span> <span class="k">as</span> <span class="nn">pk</span>
+<span class="kn">import</span> <span class="nn">dcmri.tools</span> <span class="k">as</span> <span class="nn">tools</span>
+
+
+<span class="c1"># Classic tissue models</span>
+
+<div class="viewcode-block" id="conc_1cum">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_1cum.html#dcmri.conc_1cum">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_1cum</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration in a one-compartment uptake model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: 1D array with the total concentration at each time point, in units of M.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `flux_1cum`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp = 1/60</span>
+
+<span class="sd">        Calculate the concentrations in units of mM:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; 1000*dc.conc_1cum(ca, Fp, t)</span>
+<span class="sd">        array([0.        , 0.03703704, 0.07407407, 0.11111111, 0.14814815,</span>
+<span class="sd">       0.18518519, 0.22222222, 0.25925926, 0.2962963 , 0.33333333])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_trap</span><span class="p">(</span><span class="n">Fp</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="flux_1cum">
+<a class="viewcode-back" href="../../generated/api/dcmri.flux_1cum.html#dcmri.flux_1cum">[docs]</a>
+<span class="k">def</span> <span class="nf">flux_1cum</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Outflux out of a one-compartment uptake model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Outflux out of the compartment as a 1D array in units of mmol/sec/mL or M/sec.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `conc_1cum`</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The outflux out of an uptake model is always zero, so this is a trivial function. It is included in the package for completeness only.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp = 1/60</span>
+
+<span class="sd">        Verify that the outflux out of a 1-compartment uptake model is always zero:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; 1000*dc.flux_1cum(ca, Fp, t)</span>
+<span class="sd">        array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pk</span><span class="o">.</span><span class="n">flux_trap</span><span class="p">(</span><span class="n">Fp</span><span class="o">*</span><span class="n">ca</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="conc_1cm">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_1cm.html#dcmri.conc_1cm">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_1cm</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration in a one-compartment model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        v (float): Dimensionless volume of distribution, with values between 0 and 1.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: 1D array with the total concentration at each time point, in units of M.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `flux_1cm`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL, v = 0.3. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp, v = 1/60, 0.5</span>
+
+<span class="sd">        Calculate the concentrations in units of mM:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; 1000*dc.conc_1cm(ca, Fp, v, t)</span>
+<span class="sd">        array([0.        , 0.03569855, 0.06884832, 0.0996313 , 0.12821646,</span>
+<span class="sd">        0.15476072, 0.17940981, 0.20229901, 0.223554  , 0.24329144])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">Fp</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_comp</span><span class="p">(</span><span class="n">Fp</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="n">v</span><span class="o">/</span><span class="n">Fp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="flux_1cm">
+<a class="viewcode-back" href="../../generated/api/dcmri.flux_1cm.html#dcmri.flux_1cm">[docs]</a>
+<span class="k">def</span> <span class="nf">flux_1cm</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Outflux out of a one-compartment model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        v (float): Dimensionless volume of distribution, with values between 0 and 1.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Outflux out of the compartment as a 1D array in units of mmol/sec/mL or M/sec.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `conc_1cm`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL, v = 0.3. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp, v = 1/60, 0.5</span>
+
+<span class="sd">        Calculate the outflux in units of mM/sec:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; 1000*dc.flux_1cm(ca, Fp, v, t)</span>
+<span class="sd">        array([0.        , 0.00118995, 0.00229494, 0.00332104, 0.00427388,</span>
+<span class="sd">        0.00515869, 0.00598033, 0.0067433 , 0.0074518 , 0.00810971])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">Fp</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">pk</span><span class="o">.</span><span class="n">flux_comp</span><span class="p">(</span><span class="n">Fp</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="n">v</span><span class="o">/</span><span class="n">Fp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="conc_tofts">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_tofts.html#dcmri.conc_tofts">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_tofts</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Ktrans</span><span class="p">,</span> <span class="n">kep</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration in a Tofts model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        Ktrans (float): Transcapillary transfer constant, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of arterial plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        kep (float): Excretion rate of the extravascular extracellular space, or 1/(mean transit time), in units of 1/sec.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+<span class="sd">        sum (bool, optional): if set to True, the total concentration is returned. If set to False, the concentration in the compartments is returned separately. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: If sum=True, this is a 1D array with the total concentration at each time point. If sum=False this is the concentration in each compartment, and at each time point, as a 2D array with dimensions *(2,k)*, where 2 is the number of compartments and *k* is the number of time points in *ca*. The concentration is returned in units of M.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `flux_tofts`</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The concentration &#39;C[0,:]&#39; in the plasma compartment of a Tofts model is always zero by definition.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Ktrans = 0.1 mL/min/mL, kep = 0.1/min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Ktrans, kep = 1/60, 0.1/60</span>
+
+<span class="sd">        Calculate the concentrations in units of mM:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; C = 1000*dc.conc_tofts(ca, Ktrans, kep, t, sum=False)</span>
+
+<span class="sd">        The concentration in the extravascular compartment:</span>
+
+<span class="sd">        &gt;&gt;&gt; C[1,:]</span>
+<span class="sd">        array([0.        , 0.03696853, 0.0738004 , 0.11049611, 0.14705615,</span>
+<span class="sd">        0.18348104, 0.21977128, 0.25592735, 0.29194976, 0.327839  ])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Cp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">kep</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">Ce</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_trap</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Ce</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_comp</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">kep</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">sum</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cp</span><span class="o">+</span><span class="n">Ce</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">Cp</span><span class="p">,</span><span class="n">Ce</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="flux_tofts">
+<a class="viewcode-back" href="../../generated/api/dcmri.flux_tofts.html#dcmri.flux_tofts">[docs]</a>
+<span class="k">def</span> <span class="nf">flux_tofts</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Ktrans</span><span class="p">,</span> <span class="n">kep</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Outfluxes out of a Tofts model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        Ktrans (float): Transcapillary transfer constant, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of arterial plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        kep (float): Excretion rate of the extravascular extracellular space, or 1/(mean transit time), in units of 1/sec.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Outflux out of each compartment, and at each time point, as a 3D array with dimensions *(2,2,k)*, where *2* is the number of compartments and *k* is the number of time points in *J*. Encoding of the first two indices is the same as for *E*: *J[j,i,:]* is the flux from compartment *i* to *j*, and *J[i,i,:]* is the flux from *i* directly to the outside. The flux is returned in units of mmol/sec/mL or M/sec.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `conc_tofts`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Ktrans = 0.1 mL/min/mL, kep = 0.1/min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Ktrans, kep = 1/60, 0.1/60</span>
+
+<span class="sd">        Calculate the outflux in units of mM/sec:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; J = 1000*dc.flux_tofts(ca, Ktrans, kep, t)</span>
+
+<span class="sd">        The flux into the extravascular space:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[1,0,:]</span>
+<span class="sd">        array([0.01666667, 0.01666667, 0.01666667, 0.01666667, 0.01666667,</span>
+<span class="sd">        0.01666667, 0.01666667, 0.01666667, 0.01666667, 0.01666667])</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))))</span>
+    <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">J</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span>
+    <span class="k">if</span> <span class="n">kep</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">flux_trap</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">flux_comp</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">kep</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">J</span></div>
+
+
+<div class="viewcode-block" id="conc_patlak">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_patlak.html#dcmri.conc_patlak">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_patlak</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">Ktrans</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration in a Patlak model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        Ktrans (float): Transcapillary transfer constant, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of arterial plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+<span class="sd">        sum (bool, optional): if set to True, the total concentration is returned. If set to False, the concentration in the compartments is returned separately. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: If sum=True, this is a 1D array with the total concentration at each time point. If sum=False this is the concentration in each compartment, and at each time point, as a 2D array with dimensions *(2,k)*, where 2 is the number of compartments and *k* is the number of time points in *ca*. The concentration is returned in units of M.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `flux_patlak`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by vp = 0.1, PS = 0.1/min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; vp, Ktrans = 0.1, 0.1/60</span>
+
+<span class="sd">        Calculate the concentrations in units of mM:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; C = 1000*dc.conc_patlak(ca, vp, Ktrans, t, sum=False)</span>
+
+<span class="sd">        The concentration in the plasma compartment, in units of mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; C[0,:]</span>
+<span class="sd">        array([0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1])</span>
+
+<span class="sd">        And in the extracellular, extracellular compartment compartment (mM):</span>
+
+<span class="sd">        &gt;&gt;&gt; C[1,:]</span>
+<span class="sd">        array([0.        , 0.0037037 , 0.00740741, 0.01111111, 0.01481481,</span>
+<span class="sd">        0.01851852, 0.02222222, 0.02592593, 0.02962963, 0.03333333]) </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Cp</span> <span class="o">=</span> <span class="n">vp</span><span class="o">*</span><span class="n">ca</span>
+    <span class="n">Ce</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_trap</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">sum</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cp</span><span class="o">+</span><span class="n">Ce</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">Cp</span><span class="p">,</span><span class="n">Ce</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="flux_patlak">
+<a class="viewcode-back" href="../../generated/api/dcmri.flux_patlak.html#dcmri.flux_patlak">[docs]</a>
+<span class="k">def</span> <span class="nf">flux_patlak</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">Ktrans</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Outfluxes out of a 2-compartment uptake model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M. </span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        Ktrans (float): Transcapillary transfer constant, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of arterial plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Outflux out of each compartment, and at each time point, as a 3D array with dimensions *(2,2,k)*, where *2* is the number of compartments and *k* is the number of time points in *J*. Encoding of the first two indices is the same as for *E*: *J[j,i,:]* is the flux from compartment *i* to *j*, and *J[i,i,:]* is the flux from *i* directly to the outside. The flux is returned in units of mmol/sec/mL or M/sec.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `conc_patlak`</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        In the two-compartment uptake model, the outfluxes &#39;J[1,1,:]&#39; and &#39;J[0,1,:]&#39; from the peripheral compartment are always 0.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by vp = 0.1, PS = 0.1/min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; vp, Ktrans = 0.1, 0.1/60</span>
+
+<span class="sd">        Calculate the outflux in units of mM/sec:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; J = 1000*dc.flux_patlak(ca, vp, Ktrans, t)</span>
+
+<span class="sd">        The flux out of the plasma compartment to the extravascular space:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[1,0,:]</span>
+<span class="sd">        array([0.00166667, 0.00166667, 0.00166667, 0.00166667, 0.00166667,</span>
+<span class="sd">        0.00166667, 0.00166667, 0.00166667, 0.00166667, 0.00166667])</span>
+
+<span class="sd">        We can verify that the backflux from the extravascular, extracellular compartment to the plasma compartment is zero:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[0,1,:]</span>
+<span class="sd">        array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</span>
+
+<span class="sd">        The venous outlfux from the plasma compartment is unknown because the plasma flow is not a parameter in the Patlak model:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[0,0,:]</span>
+<span class="sd">        array([nan, nan, nan, nan, nan, nan, nan, nan, nan, nan])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))))</span>
+    <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">J</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span>
+    <span class="k">return</span> <span class="n">J</span></div>
+
+
+<div class="viewcode-block" id="conc_etofts">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_etofts.html#dcmri.conc_etofts">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_etofts</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">Ktrans</span><span class="p">,</span> <span class="n">kep</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration in a two-compartment uptake model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        Ktrans (float): Transcapillary transfer constant, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of arterial plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        kep (float): Excretion rate of the extravascular extracellular space, or 1/(mean transit time), in units of 1/sec.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+<span class="sd">        sum (bool, optional): if set to True, the total concentration is returned. If set to False, the concentration in the compartments is returned separately. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: If sum=True, this is a 1D array with the total concentration at each time point. If sum=False this is the concentration in each compartment, and at each time point, as a 2D array with dimensions *(2,k)*, where 2 is the number of compartments and *k* is the number of time points in *ca*. The concentration is returned in units of M.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `flux_etofts`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Ktrans = 0.1 mL/min/mL, vp = 0.1, kep = 0.1/min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; vp, Ktrans, kep = 0.1, 1/60, 0.1/60</span>
+
+<span class="sd">        Calculate the concentrations in units of mM:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; C = 1000*dc.conc_etofts(ca, vp, Ktrans, kep, t, sum=False)</span>
+
+<span class="sd">        The concentration in the plasma compartment, in units of mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; C[0,:]</span>
+<span class="sd">        array([0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1])</span>
+
+<span class="sd">        And in the extracellular, extracellular compartment compartment (mM):</span>
+
+<span class="sd">        &gt;&gt;&gt; C[1,:]</span>
+<span class="sd">        array([0.        , 0.03696853, 0.0738004 , 0.11049611, 0.14705615,</span>
+<span class="sd">       0.18348104, 0.21977128, 0.25592735, 0.29194976, 0.327839  ])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Cp</span> <span class="o">=</span> <span class="n">vp</span><span class="o">*</span><span class="n">ca</span>
+    <span class="k">if</span> <span class="n">kep</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">Ce</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_trap</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Ce</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_comp</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">kep</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">sum</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cp</span><span class="o">+</span><span class="n">Ce</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">Cp</span><span class="p">,</span><span class="n">Ce</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="flux_etofts">
+<a class="viewcode-back" href="../../generated/api/dcmri.flux_etofts.html#dcmri.flux_etofts">[docs]</a>
+<span class="k">def</span> <span class="nf">flux_etofts</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">Ktrans</span><span class="p">,</span> <span class="n">kep</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Outfluxes out of an extended Tofts model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        Ktrans (float): Transcapillary transfer constant, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of arterial plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        kep (float): Excretion rate of the extravascular extracellular space, or 1/(mean transit time), in units of 1/sec.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Outflux out of each compartment, and at each time point, as a 3D array with dimensions *(2,2,k)*, where *2* is the number of compartments and *k* is the number of time points in *J*. Encoding of the first two indices is the same as for *E*: *J[j,i,:]* is the flux from compartment *i* to *j*, and *J[i,i,:]* is the flux from *i* directly to the outside. The flux is returned in units of mmol/sec/mL or M/sec.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `conc_etofts`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Ktrans = 0.1 mL/min/mL, vp = 0.1, kep = 0.1/min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; vp, Ktrans, kep = 0.1, 1/60, 0.1/60</span>
+
+<span class="sd">        Calculate the outflux in units of mM/sec:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; J = 1000*dc.flux_etofts(ca, vp, Ktrans, kep, t)</span>
+
+<span class="sd">        The flux from the plasma to the extravascular space:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[1,0,:]</span>
+<span class="sd">        array([0.01666667, 0.01666667, 0.01666667, 0.01666667, 0.01666667,</span>
+<span class="sd">        0.01666667, 0.01666667, 0.01666667, 0.01666667, 0.01666667])</span>
+
+<span class="sd">        Note the venous outflux out of the plasma compartment is undetermined because the Extended Tofts model does not depend on the plasma flow:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[0,0,:]</span>
+<span class="sd">        array([nan, nan, nan, nan, nan, nan, nan, nan, nan, nan])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))))</span>
+    <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">J</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span>
+    <span class="k">if</span> <span class="n">kep</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">flux_trap</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">flux_comp</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">kep</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">J</span></div>
+
+
+<div class="viewcode-block" id="conc_2cum">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_2cum.html#dcmri.conc_2cum">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_2cum</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">PS</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration in a two-compartment uptake model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        PS (float): Permeability-Surface area product of the capillary wall, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+<span class="sd">        sum (bool, optional): if set to True, the total concentration is returned. If set to False, the concentration in the compartments is returned separately. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: If sum=True, this is a 1D array with the total concentration at each time point. If sum=False this is the concentration in each compartment, and at each time point, as a 2D array with dimensions *(2,k)*, where 2 is the number of compartments and *k* is the number of time points in *ca*. The concentration is returned in units of M.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `flux_2cum`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL, vp = 0.1, PS = 0.1/min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp, vp, PS = 1/60, 0.1, 0.1/60</span>
+
+<span class="sd">        Calculate the concentrations in units of mM:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; C = 1000*dc.conc_2cum(ca, Fp, vp, PS, t, sum=False)</span>
+
+<span class="sd">        The concentration in the plasma compartment, in units of mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; C[0,:]</span>
+<span class="sd">        array([0.        , 0.03042063, 0.0506617 , 0.06412956, 0.07309071,</span>
+<span class="sd">        0.07905322, 0.08302052, 0.08566025, 0.08741665, 0.08858532])</span>
+
+<span class="sd">        And in the extracellular, extracellular compartment compartment (mM):</span>
+
+<span class="sd">        &gt;&gt;&gt; C[1,:]</span>
+<span class="sd">        array([0.        , 0.00056335, 0.00206487, 0.00419063, 0.00673175,</span>
+<span class="sd">        0.00954923, 0.0125506 , 0.01567431, 0.01887944, 0.02213874])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">)))</span>
+    <span class="n">Tp</span> <span class="o">=</span> <span class="n">vp</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+    <span class="n">Cp</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_comp</span><span class="p">(</span><span class="n">Fp</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="n">Tp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">vp</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">Ktrans</span> <span class="o">=</span> <span class="n">Fp</span><span class="o">*</span><span class="n">PS</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+        <span class="n">Ce</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_trap</span><span class="p">(</span><span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Ce</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_trap</span><span class="p">(</span><span class="n">PS</span><span class="o">*</span><span class="n">Cp</span><span class="o">/</span><span class="n">vp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">sum</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cp</span><span class="o">+</span><span class="n">Ce</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">Cp</span><span class="p">,</span><span class="n">Ce</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="flux_2cum">
+<a class="viewcode-back" href="../../generated/api/dcmri.flux_2cum.html#dcmri.flux_2cum">[docs]</a>
+<span class="k">def</span> <span class="nf">flux_2cum</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">PS</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Outfluxes out of a 2-compartment uptake model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M. </span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        PS (float): Permeability-Surface area product of the capillary wall, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Outflux out of each compartment, and at each time point, as a 3D array with dimensions *(2,2,k)*, where *2* is the number of compartments and *k* is the number of time points in *J*. Encoding of the first two indices is the same as for *E*: *J[j,i,:]* is the flux from compartment *i* to *j*, and *J[i,i,:]* is the flux from *i* directly to the outside. The flux is returned in units of mmol/sec/mL or M/sec.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `conc_2cum`</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        In the two-compartment uptake model, the outfluxes &#39;J[1,1,:]&#39; and &#39;J[0,1,:]&#39; from the peripheral compartment are always 0.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL, vp = 0.1, PS = 0.1/min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp, vp, PS = 1/60, 0.1, 0.1/60</span>
+
+<span class="sd">        Calculate the outflux in units of mM/sec:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; J = 1000*dc.flux_2cum(ca, Fp, vp, PS, t)</span>
+
+<span class="sd">        The flux out of the plasma compartment:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[0,0,:]</span>
+<span class="sd">        array([0.        , 0.00507011, 0.00844362, 0.01068826, 0.01218179,</span>
+<span class="sd">        0.01317554, 0.01383675, 0.01427671, 0.01456944, 0.01476422])</span>
+
+<span class="sd">        We can verify that the backflux from the extravascular, extracellular compartment to the plasma compartment is zero:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[0,1,:]</span>
+<span class="sd">        array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">conc_2cum</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">PS</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))))</span>
+    <span class="k">if</span> <span class="n">vp</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Fp</span><span class="o">*</span><span class="n">ca</span>
+        <span class="n">Ktrans</span> <span class="o">=</span> <span class="n">Fp</span><span class="o">*</span><span class="n">PS</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+        <span class="n">J</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ktrans</span><span class="o">*</span><span class="n">ca</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Fp</span><span class="o">*</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">/</span><span class="n">vp</span>
+        <span class="n">J</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">PS</span><span class="o">*</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">/</span><span class="n">vp</span>
+    <span class="k">return</span> <span class="n">J</span></div>
+
+
+<div class="viewcode-block" id="conc_2cxm">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_2cxm.html#dcmri.conc_2cxm">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_2cxm</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">PS</span><span class="p">,</span> <span class="n">ve</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration in a two-compartment exchange model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        PS (float): Permeability-Surface area product of the capillary wall, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        ve (float): Dimensionless extravascular, extracellular volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+<span class="sd">        sum (bool, optional): if set to True, the total concentration is returned. If set to False, the concentration in the compartments is returned separately. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: If sum=True, this is a 1D array with the total concentration at each time point. If sum=False this is the concentration in each compartment, and at each time point, as a 2D array with dimensions *(2,k)*, where 2 is the number of compartments and *k* is the number of time points in *ca*. The concentration is returned in units of M.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `flux_2cxm`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL, vp = 0.1, PS = 0.1/min and ve = 0.3. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp, vp, PS, ve = 1/60, 0.1, 0.1/60, 0.3</span>
+
+<span class="sd">        Calculate the concentrations:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; C = dc.conc_2cxm(ca, Fp, vp, PS, ve, t, sum=False)</span>
+
+<span class="sd">        The concentration in the plasma compartment, in units of mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; C[0,:]*1000</span>
+<span class="sd">        array([0.        , 0.03042294, 0.05067687, 0.06417205, 0.07317494,</span>
+<span class="sd">        0.07919185, 0.08322389, 0.0859364 , 0.08777159, 0.08902333])</span>
+
+<span class="sd">        And in the extracellular, extracellular compartment (mM) compartment (mM):</span>
+
+<span class="sd">        &gt;&gt;&gt; C[1,:]*1000</span>
+<span class="sd">        array([0.        , 0.00059896, 0.00211018, 0.00421529, 0.00670287,</span>
+<span class="sd">        0.00943251, 0.01231105, 0.01527671, 0.01828855, 0.0213195 ])</span>
+
+<span class="sd">        The total tissue concentration, in mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; (C[0,:]+C[1,:])*1000</span>
+<span class="sd">        array([0.        , 0.0310219 , 0.05278705, 0.06838735, 0.07987781,</span>
+<span class="sd">        0.08862436, 0.09553494, 0.10121311, 0.10606014, 0.11034283])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">Fp</span><span class="o">+</span><span class="n">PS</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">PS</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">Cp</span> <span class="o">=</span> <span class="n">conc_1cm</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+        <span class="n">Ce</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Cp</span><span class="o">+</span><span class="n">Ce</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">Cp</span><span class="p">,</span><span class="n">Ce</span><span class="p">))</span>
+    <span class="c1"># Derive standard parameters</span>
+    <span class="n">Tp</span> <span class="o">=</span> <span class="n">vp</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+    <span class="n">Te</span> <span class="o">=</span> <span class="n">ve</span><span class="o">/</span><span class="n">PS</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">Fp</span><span class="o">*</span><span class="n">ca</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">PS</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+    <span class="c1"># Build the system matrix K</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Te</span><span class="p">]</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="n">E</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">E</span><span class="p">,</span>   <span class="mi">0</span><span class="p">],</span>
+    <span class="p">]</span>
+    <span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">Qi</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">K_2comp</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
+    <span class="c1"># Initialize concentration-time array</span>
+    <span class="n">nc</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">tarray</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="n">Ei</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nc</span><span class="p">,</span><span class="n">nt</span><span class="p">))</span>
+    <span class="c1"># Loop over the eigenvalues</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="c1"># Calculate elements of diagonal matrix</span>
+        <span class="n">Ei</span><span class="p">[</span><span class="n">d</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_comp</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">K</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>
+        <span class="c1"># Right-multiply with inverse eigenvector matrix</span>
+        <span class="n">Ei</span><span class="p">[</span><span class="n">d</span><span class="p">,:]</span> <span class="o">*=</span> <span class="n">Qi</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Left-multiply with eigenvector matrix</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Ei</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">sum</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">C</span></div>
+
+
+<div class="viewcode-block" id="flux_2cxm">
+<a class="viewcode-back" href="../../generated/api/dcmri.flux_2cxm.html#dcmri.flux_2cxm">[docs]</a>
+<span class="k">def</span> <span class="nf">flux_2cxm</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">PS</span><span class="p">,</span> <span class="n">ve</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Outfluxes out of a 2-compartment exchange model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M. </span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        PS (float): Permeability-Surface area product of the capillary wall, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        ve (float): Dimensionless extravascular, extracellular volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Outflux out of each compartment, and at each time point, as a 3D array with dimensions *(2,2,k)*, where *2* is the number of compartments and *k* is the number of time points in *J*. Encoding of the first two indices is the same as for *E*: *J[j,i,:]* is the flux from compartment *i* to *j*, and *J[i,i,:]* is the flux from *i* directly to the outside. The flux is returned in units of mmol/sec/mL or M/sec.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `conc_2cxm`</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        In the two-compartment exchange model, the outflux &#39;J[1,1,:]&#39; from the peripheral compartment to the outside is always 0.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a 2-compartment exchange model with a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL, vp = 0.1, PS = 0.1/min and ve = 0.3. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp, vp, PS, ve = 1/60, 0.1, 0.1/60, 0.3</span>
+
+<span class="sd">        Calculate the outflux:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; J = dc.flux_2cxm(ca, Fp, vp, PS, ve, t)</span>
+
+<span class="sd">        The flux out of the plasma compartment, in units of mM/sec:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[0,0,:]*1000</span>
+<span class="sd">        array([0.        , 0.00507049, 0.00844615, 0.01069534, 0.01219582,</span>
+<span class="sd">        0.01319864, 0.01387065, 0.01432273, 0.0146286 , 0.01483722])</span>
+
+<span class="sd">        The backflux from the extravascular, extracellular compartment to the plasma compartment:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[0,1,:]*1000</span>
+<span class="sd">        array([0.00000000e+00, 3.32758154e-06, 1.17232233e-05, 2.34183019e-05,</span>
+<span class="sd">        3.72381463e-05, 5.24028209e-05, 6.83947251e-05, 8.48705993e-05,</span>
+<span class="sd">        1.01603044e-04, 1.18441651e-04])</span>
+
+<span class="sd">        And we can verify that there is no leakage from extravascular, extracellular compartment to the environment:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[1,1,:]</span>
+<span class="sd">        array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">Fp</span><span class="o">+</span><span class="n">PS</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">PS</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">Jp</span> <span class="o">=</span> <span class="n">flux_1cm</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">)))</span>
+        <span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Jp</span>
+        <span class="k">return</span> <span class="n">J</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">conc_2cxm</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">PS</span><span class="p">,</span> <span class="n">ve</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Derive standard parameters</span>
+    <span class="n">Tp</span> <span class="o">=</span> <span class="n">vp</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+    <span class="n">Te</span> <span class="o">=</span> <span class="n">ve</span><span class="o">/</span><span class="n">PS</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">Fp</span><span class="o">*</span><span class="n">ca</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">PS</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+    <span class="c1"># Build the system matrix K</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Te</span><span class="p">]</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="n">E</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">E</span><span class="p">,</span>   <span class="mi">0</span><span class="p">],</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">pk</span><span class="o">.</span><span class="n">J_ncomp</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="conc_2cfm">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_2cfm.html#dcmri.conc_2cfm">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_2cfm</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">PS</span><span class="p">,</span> <span class="n">Te</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration in a two-compartment filtration model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M. </span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        PS (float): Permeability-Surface area product of the capillary wall, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        Te (float): Mean transit time of the extravascular, extracellular space, in units of sec.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+<span class="sd">        sum (bool, optional): if set to True, the total concentration is returned. If set to False, the concentration in the compartments are returned separately. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: If sum=True, this is a 1D array with the total concentration at each time point. If sum=False this is the concentration in each compartment, and at each time point, as a 2D array with dimensions *(2,k)*, where 2 is the number of compartments and *k* is the number of time points in *ca*. The concentration is returned in units of M.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `flux_2cfm`</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a 2-compartment filtration model with a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL, vp = 0.1, PS = 0.1/min and Te = 2min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp, vp, PS, Te = 1/60, 0.1, 0.1/60, 2*60</span>
+
+<span class="sd">        Calculate the concentrations:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; C = dc.conc_2cfm(ca, Fp, vp, PS, Te, t, sum=False)</span>
+
+<span class="sd">        The concentration in the plasma compartment, in units of mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; C[0,:]*1000</span>
+<span class="sd">        array([0.        , 0.03042063, 0.0506617 , 0.06412956, 0.07309071,</span>
+<span class="sd">        0.07905322, 0.08302052, 0.08566025, 0.08741665, 0.08858532])</span>
+
+<span class="sd">        And in the extravascular, extracellular compartment (mM):</span>
+
+<span class="sd">        &gt;&gt;&gt; C[1,:]*1000</span>
+<span class="sd">        array([0.        , 0.00055988, 0.00203846, 0.00410803, 0.00655089,</span>
+<span class="sd">        0.00922259, 0.01202734, 0.01490178, 0.0178041 , 0.02070679])</span>
+
+<span class="sd">        The total tissue concentration, in mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; (C[0,:]+C[1,:])*1000</span>
+<span class="sd">        array([0.        , 0.03098051, 0.05270016, 0.06823759, 0.07964161,</span>
+<span class="sd">        0.08827581, 0.09504785, 0.10056203, 0.10522075, 0.10929211])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">Fp</span><span class="o">+</span><span class="n">PS</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">)))</span>
+    <span class="c1"># Derive standard parameters</span>
+    <span class="n">Tp</span> <span class="o">=</span> <span class="n">vp</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">PS</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">Fp</span><span class="o">*</span><span class="n">ca</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Te</span><span class="p">]</span>
+    <span class="c1"># Solve the system explicitly</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">tarray</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">J</span><span class="p">),</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="n">C0</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_comp</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">E</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">J10</span> <span class="o">=</span> <span class="n">E</span><span class="o">*</span><span class="n">J</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_comp</span><span class="p">(</span><span class="n">J10</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">J10</span> <span class="o">=</span> <span class="n">C0</span><span class="o">*</span><span class="n">E</span><span class="o">/</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">conc_comp</span><span class="p">(</span><span class="n">J10</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">sum</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">C0</span><span class="o">+</span><span class="n">C1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">C0</span><span class="p">,</span> <span class="n">C1</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="flux_2cfm">
+<a class="viewcode-back" href="../../generated/api/dcmri.flux_2cfm.html#dcmri.flux_2cfm">[docs]</a>
+<span class="k">def</span> <span class="nf">flux_2cfm</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">Fp</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">PS</span><span class="p">,</span> <span class="n">Te</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Outfluxes out of a 2-compartment filtration model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ca (array_like): the indicator concentration in the plasma of the feeding artery, as a 1D array, in units of M.</span>
+<span class="sd">        Fp (float): Plasma flow into the tissue, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec).</span>
+<span class="sd">        vp (float): Dimensionless plasma volume fraction of tissue, with values between 0 and 1.</span>
+<span class="sd">        PS (float): Permeability-Surface area product of the capillary wall, in units of mL plasma per sec and per mL tissue (mL/sec/mL or 1/sec). Physically PS is the volume of plasma fully cleared of indicator per unit of time by a unit of tissue.</span>
+<span class="sd">        Te (float): Mean transit time of the extravascular, extracellular space, in units of sec.</span>
+<span class="sd">        t (array_like, optional): the time points in sec of the input function *ca*. If *t* is not provided, the time points are assumed to be uniformly spaced with spacing *dt*. Defaults to None.</span>
+<span class="sd">        dt (float, optional): spacing in seconds between time points for uniformly spaced time points. This parameter is ignored if *t* is explicity provided. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Outflux out of each compartment, and at each time point, as a 3D array with dimensions *(2,2,k)*, where *2* is the number of compartments and *k* is the number of time points in *J*. Encoding of the first two indices is the same as for *E*: *J[j,i,:]* is the flux from compartment *i* to *j*, and *J[i,i,:]* is the flux from *i* directly to the outside. The flux is returned in units of mmol/sec/mL or M/sec.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        `conc_2cfm`</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        In the two-compartment filtration model, the backflux &#39;J[0,1,:]&#39; from the extravascular, extracellular compartment to the plasma compartment is always 0.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        Consider a measurement with 10 time points from 0 to 20s, and a 2-compartment filtration model with a constant input concentration of 1mM:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.linspace(0, 20, 10)</span>
+<span class="sd">        &gt;&gt;&gt; ca = 0.001*np.ones(t.size)</span>
+
+<span class="sd">        The tissue is characterized by Fp = 1 mL/min/mL, vp = 0.1, PS = 0.1/min and Te = 2min. In the correct units:</span>
+
+<span class="sd">        &gt;&gt;&gt; Fp, vp, PS, Te = 1/60, 0.1, 0.1/60, 2*60</span>
+
+<span class="sd">        Calculate the outfluxes:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; J = dc.flux_2cfm(ca, Fp, vp, PS, Te, t)</span>
+
+<span class="sd">        The flux out of the central compartment in mM/sec:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[0,0,:]*1000</span>
+<span class="sd">        array([0.        , 0.00507011, 0.00844362, 0.01068826, 0.01218179,</span>
+<span class="sd">        0.01317554, 0.01383675, 0.01427671, 0.01456944, 0.01476422])</span>
+
+<span class="sd">        And we can verify that the backflux from the extravascular compartment to the plasma compartment is zero:</span>
+
+<span class="sd">        &gt;&gt;&gt; J[0,1,:]</span>
+<span class="sd">        array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">Fp</span><span class="o">+</span><span class="n">PS</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ca</span><span class="p">)))</span>
+    <span class="c1"># Derive standard parameters</span>
+    <span class="n">Tp</span> <span class="o">=</span> <span class="n">vp</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">PS</span><span class="o">/</span><span class="p">(</span><span class="n">Fp</span><span class="o">+</span><span class="n">PS</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">Fp</span><span class="o">*</span><span class="n">ca</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Te</span><span class="p">]</span>
+    <span class="c1"># Solve the system explicitly</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">tarray</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">J</span><span class="p">),</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="n">Jo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
+    <span class="n">J0</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">flux_comp</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>   
+    <span class="n">J10</span> <span class="o">=</span> <span class="n">E</span><span class="o">*</span><span class="n">J0</span>
+    <span class="n">Jo</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">J10</span>
+    <span class="n">Jo</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">pk</span><span class="o">.</span><span class="n">flux_comp</span><span class="p">(</span><span class="n">J10</span><span class="p">,</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">Jo</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">E</span><span class="p">)</span><span class="o">*</span><span class="n">J0</span>
+    <span class="k">return</span> <span class="n">Jo</span></div>
+
+
+
+<span class="c1"># Whole body models</span>
+
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, dcmri maintainers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
