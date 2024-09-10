@@ -1,0 +1,1043 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dcmri.sig &#8212; dcmri 0.6.8 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=cd8af66b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=ac3b80e6"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/dcmri/sig';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/tristan-logo.jpg" class="logo__image only-light" alt="dcmri 0.6.8 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/tristan-logo.jpg" class="logo__image only-dark" alt="dcmri 0.6.8 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial/index.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generated/examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../releases/index.html">
+    Releases
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/QIB-Sheffield/dcmri" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial/index.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generated/examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../releases/index.html">
+    Releases
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/QIB-Sheffield/dcmri" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">dcmri.sig</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for dcmri.sig</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">expm</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="signal_dsc">
+<a class="viewcode-back" href="../../generated/api/dcmri.signal_dsc.html#dcmri.signal_dsc">[docs]</a>
+<span class="k">def</span> <span class="nf">signal_dsc</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">R2</span><span class="p">,</span> <span class="n">S0</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">TE</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Signal model for a DSC scan with T2 and T2-weighting.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        R1 (array-like): Longitudinal relaxation rate in 1/sec. Must have the same size as R2.</span>
+<span class="sd">        R2 (array-like): Transverse relaxation rate in 1/sec. Must have the same size as R1.</span>
+<span class="sd">        S0 (float): Signal scaling factor (arbitrary units).</span>
+<span class="sd">        TR (array-like): Repetition time, or time between successive selective excitations, in sec. If TR is an array, it must have the same size as R1 and R2.</span>
+<span class="sd">        TE (array-like): Echo time, in sec. If TE is an array, it must have the same size as R1 and R2.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Signal in arbitrary units, same length as R1 and R2.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">S0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">TE</span><span class="p">,</span><span class="n">R2</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span><span class="n">R1</span><span class="p">)))</span></div>
+
+
+
+<div class="viewcode-block" id="signal_t2w">
+<a class="viewcode-back" href="../../generated/api/dcmri.signal_t2w.html#dcmri.signal_t2w">[docs]</a>
+<span class="k">def</span> <span class="nf">signal_t2w</span><span class="p">(</span><span class="n">R2</span><span class="p">,</span> <span class="n">S0</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TE</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Signal model for a DSC scan with T2-weighting.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        R2 (array-like): Transverse relaxation rate in 1/sec. Must have the same size as R1.</span>
+<span class="sd">        S0 (float): Signal scaling factor (arbitrary units).</span>
+<span class="sd">        TE (array-like): Echo time, in sec. If TE is an array, it must have the same size as R1 and R2.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Signal in arbitrary units, same length as R1 and R2.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">S0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">TE</span><span class="p">,</span><span class="n">R2</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="conc_t2w">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_t2w.html#dcmri.conc_t2w">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_t2w</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">TE</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">n0</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration for a DSC scan with T2-weighting.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        S (array-like): Signal in arbitrary units.</span>
+<span class="sd">        TE (float): Echo time in sec.</span>
+<span class="sd">        r2 (float, optional): Transverse relaxivity in Hz/M. Defaults to 0.5.</span>
+<span class="sd">        n0 (int, optional): Baseline length. Defaults to 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Concentration in M, same length as S.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># S/Sb = exp(-TE(R2-R2b))</span>
+    <span class="c1">#   ln(S/Sb) = -TE(R2-R2b)</span>
+    <span class="c1">#   R2-R2b = -ln(S/Sb)/TE</span>
+    <span class="c1"># R2 = R2b + r2C</span>
+    <span class="c1">#   C = (R2-R2b)/r2</span>
+    <span class="c1">#   C = -ln(S/Sb)/TE/r2</span>
+    <span class="n">Sb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">S</span><span class="p">[:</span><span class="n">n0</span><span class="p">])</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="n">Sb</span><span class="p">)</span><span class="o">/</span><span class="n">TE</span><span class="o">/</span><span class="n">r2</span>
+    <span class="k">return</span> <span class="n">C</span></div>
+
+
+
+
+<span class="k">def</span> <span class="nf">_signal_ss</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">Sinf</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="n">FA</span> <span class="o">=</span> <span class="n">FA</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span><span class="n">R1</span><span class="p">))</span>
+    <span class="n">cFA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">FA</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">Sinf</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">E</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cFA</span><span class="o">*</span><span class="n">E</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">FA</span><span class="p">)</span><span class="o">*</span><span class="n">S</span>
+
+<span class="k">def</span> <span class="nf">_signal_ss_fex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">FA</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+        <span class="n">R1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">R1</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">_signal_ss</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">)</span>
+    <span class="n">nc</span> <span class="o">=</span> <span class="n">R1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">R1fex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">R1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">):</span>
+        <span class="n">R1fex</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">*</span><span class="n">R1</span><span class="p">[</span><span class="n">c</span><span class="p">,</span><span class="o">...</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">_signal_ss</span><span class="p">(</span><span class="n">R1fex</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_signal_ss_nex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">FA</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">_signal_ss</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">S</span><span class="p">))</span> 
+    <span class="n">nc</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="n">R1</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">):</span>
+        <span class="n">S</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">*</span><span class="n">_signal_ss</span><span class="p">(</span><span class="n">R1</span><span class="p">[</span><span class="n">c</span><span class="p">,:],</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">S</span>
+
+<span class="k">def</span> <span class="nf">_signal_ss_aex</span><span class="p">(</span><span class="n">PS</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">):</span>
+
+    <span class="c1"># Mathematical notes on water exchange modelling</span>
+    <span class="c1"># ---------------------------------------------</span>
+    <span class="c1"># Longitudinal magnetization in a 2-compartment system</span>
+    <span class="c1"># with kinetic transport and free relaxation</span>
+
+    <span class="c1"># v1*dm1/dt = fi1*mi1 - fo1*m1 + f12*m2 - f21*m1 + R1_1*v1*(m01-m1) </span>
+    <span class="c1"># v2*dm2/dt = fi2*mi2 - fo2*m2 + f21*m1 - f12*m2 + R1_2*v2*(m02-m2) </span>
+
+    <span class="c1"># v1*dm1/dt = fi1*mi1 - (fo1+f21+R1_1*v1)*m1 + f12*m2 + R1_1*v1*m01</span>
+    <span class="c1"># v2*dm2/dt = fi2*mi2 - (fo2+f12+R1_2*v2)*m2 + f21*m1 + R1_2*v2*m02</span>
+
+    <span class="c1"># f1 = fo1 + f21 + R1_1*v1 &gt; 0</span>
+    <span class="c1"># f2 = fo2 + f12 + R1_2*v2 &gt; 0</span>
+
+    <span class="c1"># J1(t) = fi1*mi1(t) + R1_1*v1*m01 &gt; 0</span>
+    <span class="c1"># J2(t) = fi2*mi2(t) + R1_2*v2*m02 &gt; 0</span>
+
+    <span class="c1"># v1*dm1/dt = J1 - f1*m1 + f12*m2 </span>
+    <span class="c1"># v2*dm2/dt = J2 - f2*m2 + f21*m1 </span>
+
+    <span class="c1"># K1 = (fo1 + f21)/v1 + R1_1</span>
+    <span class="c1"># K2 = (fo2 + f12)/v2 + R1_2</span>
+    <span class="c1"># K12 = f12/v2</span>
+    <span class="c1"># K21 = f21/v1</span>
+
+    <span class="c1"># dM1/dt = J1 - K1*M1 + K12*M2 </span>
+    <span class="c1"># dM2/dt = J2 - K2*M2 + K21*M1 </span>
+
+    <span class="c1"># K = [[K1, -K12],[-K21, K2]</span>
+    <span class="c1"># dM/dt = J - KM</span>
+
+    <span class="c1"># Use generic solution for n-comp system to solve for M(t)</span>
+    <span class="c1"># Note with R1(t) this is not a stationary system</span>
+
+    <span class="c1"># Solution with K and J constant in time:</span>
+
+    <span class="c1"># M(t) = exp(-tK)M(0) + exp(-tK)*J</span>
+    <span class="c1"># M(t) = exp(-tK)M(0) + (1-exp(-tK)) K^-1 J</span>
+
+    <span class="c1"># Check</span>
+
+    <span class="c1"># dM/dt </span>
+    <span class="c1"># = - K exp(-tK)M(0) + exp(-tK) J</span>
+    <span class="c1"># J - KM </span>
+    <span class="c1"># = J - Kexp(-tK)M(0) - (1-exp(-tK))J </span>
+    <span class="c1"># = - K exp(-tK)M(0) + exp(-tK) J</span>
+
+    <span class="c1"># Spoiled gradient echo steady state:</span>
+    <span class="c1"># M = exp(-TR*K) cosFA M + (1-exp(-TR*K)) K^-1 J</span>
+    <span class="c1"># (1 - cosFA exp(-TR*K)) M = (1-exp(-TR*K)) K^-1 J</span>
+    <span class="c1"># M = (1 - cosFA exp(-TR*K))^-1 (1-exp(-TR*K)) K^-1 J</span>
+    <span class="c1"># M = (1 - cosFA exp(-TR*K))^-1 K^-1 (1-exp(-TR*K))  J</span>
+    <span class="c1"># M = [K(1 - cosFA exp(-TR*K))]^-1 (1-exp(-TR*K)) J</span>
+
+    <span class="c1"># Inputs to the function:</span>
+
+    <span class="c1"># f1 = fo1 + f21 + R1_1(t)*v1</span>
+    <span class="c1"># f2 = fo2 + f12 + R1_2(t)*v2</span>
+    
+    <span class="c1"># J1 = fi1*S0*mi1(t) + R1_1(t)*v1*S0*m01</span>
+    <span class="c1"># J2 = fi2*S0*mi2(t) + R1_2(t)*v2*S0*m02</span>
+
+    <span class="c1"># K = [[f1/v1, -f21/v1], [-f12/v2, f2/v2]]</span>
+    <span class="c1"># J = [J1, J2]</span>
+
+    <span class="c1"># K dimensions = (ncomp, ncomp, nt)</span>
+    <span class="c1"># J dimensions = (ncomp, nt)</span>
+
+    <span class="c1"># Returns:</span>
+
+    <span class="c1"># M = (1 - cosFA exp(-TR*K))^-1 (1-exp(-TR*K)) K^-1 J</span>
+    <span class="c1"># M = [(1 - cosFA exp(-TR*K))K]^-1 (1-exp(-TR*K)) J</span>
+
+    <span class="c1"># reshape for convenience</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span>
+    <span class="n">R1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">PS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">PS</span><span class="p">)</span>
+
+    <span class="n">nc</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="n">R1</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nc</span><span class="p">,</span><span class="n">nt</span><span class="p">))</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nc</span><span class="p">,</span><span class="n">nc</span><span class="p">,</span><span class="n">nt</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">):</span>
+        <span class="n">J</span><span class="p">[</span><span class="n">c</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">S0</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">*</span><span class="n">R1</span><span class="p">[</span><span class="n">c</span><span class="p">,:]</span>
+        <span class="n">K</span><span class="p">[</span><span class="n">c</span><span class="p">,</span><span class="n">c</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">R1</span><span class="p">[</span><span class="n">c</span><span class="p">,:]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">PS</span><span class="p">[:,</span><span class="n">c</span><span class="p">])</span><span class="o">/</span><span class="n">v</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">d</span><span class="o">!=</span><span class="n">c</span><span class="p">:</span>
+                <span class="n">K</span><span class="p">[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,:]</span> <span class="o">=</span> <span class="o">-</span><span class="n">PS</span><span class="p">[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]</span><span class="o">/</span><span class="n">v</span><span class="p">[</span><span class="n">d</span><span class="p">]</span>
+
+    <span class="n">FA</span> <span class="o">=</span> <span class="n">FA</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+    <span class="n">cFA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">FA</span><span class="p">)</span>
+    <span class="n">Mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span>
+    <span class="n">Id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nc</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nt</span><span class="p">):</span>
+        <span class="n">Et</span> <span class="o">=</span> <span class="n">expm</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span><span class="o">*</span><span class="n">K</span><span class="p">[:,:,</span><span class="n">t</span><span class="p">])</span>
+        <span class="n">Mt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">K</span><span class="p">[:,:,</span><span class="n">t</span><span class="p">],</span> <span class="n">Id</span><span class="o">-</span><span class="n">cFA</span><span class="o">*</span><span class="n">Et</span><span class="p">)</span>
+        <span class="n">Mt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Mt</span><span class="p">)</span>
+        <span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Id</span><span class="o">-</span><span class="n">Et</span><span class="p">,</span> <span class="n">J</span><span class="p">[:,</span><span class="n">t</span><span class="p">])</span>
+        <span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Mt</span><span class="p">,</span> <span class="n">Vt</span><span class="p">)</span>
+        <span class="n">Mag</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Vt</span><span class="p">)</span>
+
+    <span class="c1"># Return in original shape</span>
+    <span class="n">R1</span> <span class="o">=</span> <span class="n">R1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">FA</span><span class="p">)</span><span class="o">*</span><span class="n">Mag</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+
+<div class="viewcode-block" id="signal_ss">
+<a class="viewcode-back" href="../../generated/api/dcmri.signal_ss.html#dcmri.signal_ss">[docs]</a>
+<span class="k">def</span> <span class="nf">signal_ss</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">PSw</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">R10</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Signal of a spoiled gradient echo sequence applied in steady state.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        R1 (array-like): Longitudinal relaxation rates in 1/sec. For a tissue with n compartments, the first dimension of R1 must be n. For a tissue with a single compartment, R1 can have any shape.</span>
+<span class="sd">        S0 (float): Signal scaling factor (arbitrary units).</span>
+<span class="sd">        TR (float): Repetition time, or time between successive selective excitations, in sec. </span>
+<span class="sd">        FA (float): Flip angle in degrees.</span>
+<span class="sd">        v (array-like, optional): volume fractions of each compartment. If v is not provided, the tissue will be treated as one-compartmental. If v is provided, the length must be same as the first dimension of R1 and values must add up to 1. Defaults to None.</span>
+<span class="sd">        PSw (array-like, optional): Water permeability-surface area products through the interfaces between the compartments, in units of mL/sec/mL. With PSw=np.inf (default), water exchange is in the fast-exchange limit. With PSw=0, there is no water exchange between the compartments. For any intermediate level of water exchange, PSw must be a nxn array, where n is the number of compartments, and PSw[j,i] is the permeability for water moving from compartment i into j. The diagonal elements PSw[i,i] quantify the flow of water from compartment i to outside. Defaults to np.inf.</span>
+<span class="sd">        R10 (float, optional): R1-value where S0 is defined. If not provided, S0 is the scaling factor corresponding to infinite R10. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Signal in the same units as S0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">R10</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">Sinf</span> <span class="o">=</span> <span class="n">S0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">R10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">R10</span><span class="p">)</span>
+        <span class="n">Sinf</span> <span class="o">=</span> <span class="n">S0</span><span class="o">/</span><span class="n">signal_ss</span><span class="p">(</span><span class="n">R10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">PSw</span><span class="o">=</span><span class="n">PSw</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_signal_ss</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">Sinf</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">R1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;In a multi-compartment system, R1 must be an array with at least 1 dimension..&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">R1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;v must have the same length as R1.&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">R1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;v must have the same length as the first dimension of R1.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">PSw</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">PSw</span><span class="o">==</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_signal_ss_fex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">Sinf</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">PSw</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_signal_ss_nex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">Sinf</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">PSw</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;For intermediate water exchange, PSw must be a square array&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">PSw</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimensions of PSw and v do not match up.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_signal_ss_aex</span><span class="p">(</span><span class="n">PSw</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">Sinf</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="conc_ss">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_ss.html#dcmri.conc_ss">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_ss</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">TR</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">FA</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">T10</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">r1</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">n0</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration of a spoiled gradient echo sequence applied in steady state.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        S (array-like): Signal in arbitrary units.</span>
+<span class="sd">        TR (float): Repetition time, or time between successive selective excitations, in sec.</span>
+<span class="sd">        FA (float): Flip angle in degrees.</span>
+<span class="sd">        T10 (float): baseline T1 value in sec.</span>
+<span class="sd">        r1 (float, optional): Longitudinal relaxivity in Hz/M. Defaults to 0.005.</span>
+<span class="sd">        n0 (int, optional): Baseline length. Defaults to 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Concentration in M, same length as S.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># S = Sinf * (1-exp(-TR*R1)) / (1-cFA*exp(-TR*R1))</span>
+    <span class="c1"># Sb = Sinf * (1-exp(-TR*R10)) / (1-cFA*exp(-TR*R10))</span>
+    <span class="c1"># Sn = (1-exp(-TR*R1)) / (1-cFA*exp(-TR*R1))</span>
+    <span class="c1"># Sn * (1-cFA*exp(-TR*R1)) = 1-exp(-TR*R1)</span>
+    <span class="c1"># exp(-TR*R1) - Sn *cFA*exp(-TR*R1) = 1-Sn</span>
+    <span class="c1"># (1-Sn*cFA) * exp(-TR*R1) = 1-Sn</span>
+    <span class="n">Sb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">S</span><span class="p">[:</span><span class="n">n0</span><span class="p">])</span>
+    <span class="n">E0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span><span class="o">/</span><span class="n">T10</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">FA</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span>
+    <span class="n">Sn</span> <span class="o">=</span> <span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="n">Sb</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">E0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="n">E0</span><span class="p">)</span>	        <span class="c1"># normalized signal</span>
+    <span class="c1"># Replace any Nan values by interpolating between nearest neighbours</span>
+    <span class="n">outrange</span> <span class="o">=</span> <span class="n">Sn</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">outrange</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">inrange</span> <span class="o">=</span> <span class="n">Sn</span> <span class="o">&lt;</span> <span class="mi">1</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Sn</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">Sn</span><span class="p">[</span><span class="n">outrange</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">outrange</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">inrange</span><span class="p">],</span> <span class="n">Sn</span><span class="p">[</span><span class="n">inrange</span><span class="p">])</span>
+    <span class="n">R1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">Sn</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="n">Sn</span><span class="p">))</span><span class="o">/</span><span class="n">TR</span>	<span class="c1"># relaxation rate in 1/msec</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">R1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T10</span><span class="p">)</span><span class="o">/</span><span class="n">r1</span> </div>
+
+
+
+
+<span class="k">def</span> <span class="nf">_signal_sr</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">Sinf</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TR</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">FA</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TC</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TP</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">TP</span> <span class="o">&gt;</span> <span class="n">TC</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Incorrect sequence parameters.&#39;</span>
+        <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39;Tsat must be smaller than TC.&#39;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="n">FA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">FA</span><span class="o">/</span><span class="mi">180</span>
+    <span class="n">cFA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">FA</span><span class="p">)</span>
+    <span class="n">T1_app</span> <span class="o">=</span> <span class="n">TR</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span><span class="n">R1</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">cFA</span><span class="p">))</span>
+
+    <span class="n">ER</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span><span class="n">R1</span><span class="p">))</span>
+    <span class="n">E_sat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">TP</span><span class="p">,</span><span class="n">R1</span><span class="p">))</span>
+    <span class="n">E_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">TC</span><span class="o">-</span><span class="n">TP</span><span class="p">)</span><span class="o">/</span><span class="n">T1_app</span><span class="p">)</span>
+
+    <span class="n">S_sat</span> <span class="o">=</span> <span class="n">Sinf</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">E_sat</span><span class="p">)</span>
+    <span class="n">S_ss</span> <span class="o">=</span> <span class="n">Sinf</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ER</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cFA</span><span class="o">*</span><span class="n">ER</span><span class="p">)</span>
+
+    <span class="n">S_ss</span> <span class="o">=</span> <span class="n">S_ss</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">E_center</span><span class="p">)</span> <span class="o">+</span> <span class="n">S_sat</span><span class="o">*</span><span class="n">E_center</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">FA</span><span class="p">)</span><span class="o">*</span><span class="n">S_ss</span>
+
+
+<span class="k">def</span> <span class="nf">_signal_sr_fex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TR</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">FA</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TC</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TP</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+        <span class="n">R1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">R1</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">_signal_sr</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">TC</span><span class="p">,</span> <span class="n">TP</span><span class="p">)</span>
+    <span class="n">nc</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="n">R1</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">R1fex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">):</span>
+        <span class="n">R1fex</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">*</span><span class="n">R1</span><span class="p">[</span><span class="n">c</span><span class="p">,:]</span>
+    <span class="k">return</span> <span class="n">_signal_sr</span><span class="p">(</span><span class="n">R1fex</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">TC</span><span class="p">,</span> <span class="n">TP</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_signal_sr_nex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TR</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">FA</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TC</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TP</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">_signal_sr</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">TC</span><span class="p">,</span> <span class="n">TP</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">S</span><span class="p">))</span> 
+    <span class="n">nc</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="n">R1</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">):</span>
+        <span class="n">S</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">*</span><span class="n">_signal_sr</span><span class="p">(</span><span class="n">R1</span><span class="p">[</span><span class="n">c</span><span class="p">,:],</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">TC</span><span class="p">,</span> <span class="n">TP</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">S</span>
+
+
+<div class="viewcode-block" id="signal_sr">
+<a class="viewcode-back" href="../../generated/api/dcmri.signal_sr.html#dcmri.signal_sr">[docs]</a>
+<span class="k">def</span> <span class="nf">signal_sr</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TR</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">FA</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TC</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TP</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">PSw</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">R10</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Signal model for a saturation-recovery sequence with a FLASH readout.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        R1 (array-like): Longitudinal relaxation rate in 1/sec.</span>
+<span class="sd">        S0 (float): Signal scaling factor (arbitrary units).</span>
+<span class="sd">        TR (float): Repetition time, or time between successive selective excitations, in sec. </span>
+<span class="sd">        FA (array-like): Flip angle in degrees.</span>
+<span class="sd">        TC (float): Time (sec) between the saturation pulse and the acquisition of the k-space center.</span>
+<span class="sd">        TP (float, optional): Time (sec) between the saturation pre-pulse and the first readout pulse. Defaults to 0.</span>
+<span class="sd">        v (array-like, optional): volume fractions of each compartment. If v is not provided, the tissue will be treated as one-compartmental. If v is provided, the length must be same as the first dimension of R1 and values must add up to 1. Defaults to None.</span>
+<span class="sd">        PSw (array-like, optional): Water permeability-surface area products through the interfaces between the compartments, in units of mL/sec/mL. With PSw=np.inf (default), water exchange is in the fast-exchange limit. With PSw=0, there is no water exchange between the compartments. For any intermediate level of water exchange, PSw must be a nxn array, where n is the number of compartments, and PSw[j,i] is the permeability for water moving from compartment i into j. The diagonal elements PSw[i,i] quantify the flow of water from compartment i to outside. Defaults to np.inf.</span>
+
+<span class="sd">        R10 (float, optional): R1-value where S0 is defined. If not provided, S0 is the scaling factor corresponding to infinite R10. Defaults to None.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If TP is larger than TC.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Signal in arbitrary units, of the same length as R1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">R10</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">Sinf</span> <span class="o">=</span> <span class="n">S0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">R10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">R10</span><span class="p">)</span>
+        <span class="n">Sinf</span> <span class="o">=</span> <span class="n">S0</span><span class="o">/</span><span class="n">signal_sr</span><span class="p">(</span><span class="n">R10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">TC</span><span class="p">,</span> <span class="n">TP</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_signal_sr</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">Sinf</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">TC</span><span class="p">,</span> <span class="n">TP</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">R1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;In a multi-compartment system, R1 must be an array with at least 1 dimension..&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">R1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;v must have the same length as R1.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">R1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;v must have the same length as the first dimension of R1.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">PSw</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">PSw</span><span class="o">==</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_signal_sr_fex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">Sinf</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">TC</span><span class="p">,</span> <span class="n">TP</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">PSw</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_signal_sr_nex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">Sinf</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">TC</span><span class="p">,</span> <span class="n">TP</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">PSw</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;For intermediate water exchange, PSw must be a square array&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">PSw</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimensions of PSw and v do not match up.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Internediate water exchange modelling is not yet available for SR sequences&#39;</span><span class="p">)</span></div>
+
+        <span class="c1">#return _signal_sr_aex(PSw, v, R1, Sinf, TR, FA, TC, TP)</span>
+
+
+<div class="viewcode-block" id="signal_er">
+<a class="viewcode-back" href="../../generated/api/dcmri.signal_er.html#dcmri.signal_er">[docs]</a>
+<span class="k">def</span> <span class="nf">signal_er</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TR</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">FA</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">TC</span><span class="p">:</span><span class="nb">float</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Signal model for a FLASH readout, starting from equilibrium (i.e. no preparation pulse).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        R1 (array-like): Longitudinal relaxation rate in 1/sec.</span>
+<span class="sd">        S0 (float): Signal scaling factor (arbitrary units).</span>
+<span class="sd">        TR (float): Repetition time, or time between successive selective excitations, in sec. </span>
+<span class="sd">        FA (array-like): Flip angle in degrees.</span>
+<span class="sd">        TC (float): Time (sec) between the saturation pulse and the acquisition of the k-space center.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Signal in arbitrary units, of the same length as R1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#TI is the residence time in the slab</span>
+    <span class="n">FA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">FA</span><span class="o">/</span><span class="mi">180</span>
+    <span class="n">cFA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">FA</span><span class="p">)</span>
+    <span class="n">R1_app</span> <span class="o">=</span> <span class="n">R1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">cFA</span><span class="p">)</span><span class="o">/</span><span class="n">TR</span>
+
+    <span class="n">ER</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span><span class="o">*</span><span class="n">R1</span><span class="p">)</span>
+    <span class="n">EI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TC</span><span class="o">*</span><span class="n">R1_app</span><span class="p">)</span>
+
+    <span class="n">Sss</span> <span class="o">=</span> <span class="n">S0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ER</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cFA</span><span class="o">*</span><span class="n">ER</span><span class="p">)</span>
+    <span class="n">Sss</span> <span class="o">=</span> <span class="n">Sss</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">EI</span><span class="p">)</span> <span class="o">+</span> <span class="n">S0</span><span class="o">*</span><span class="n">EI</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">FA</span><span class="p">)</span><span class="o">*</span><span class="n">Sss</span></div>
+
+
+
+<div class="viewcode-block" id="signal_src">
+<a class="viewcode-back" href="../../generated/api/dcmri.signal_src.html#dcmri.signal_src">[docs]</a>
+<span class="k">def</span> <span class="nf">signal_src</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">TC</span><span class="p">,</span> <span class="n">R10</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Signal model for a saturation-recovery with a center-encoded readout.</span>
+
+<span class="sd">    This can also be used with other encoding schemens whenever the effect of the readout pulses can be ignored, such as for fast flowing magnetization in arterial blood.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        R1 (array-like): Longitudinal relaxation rate in 1/sec.</span>
+<span class="sd">        S0 (float): Signal scaling factor (arbitrary units).</span>
+<span class="sd">        TC (float): Time (sec) between the saturation pulse and the acquisition of the k-space center.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Signal in arbitrary units, of the same length as R1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">R10</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">Sinf</span> <span class="o">=</span> <span class="n">S0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Sinf</span> <span class="o">=</span> <span class="n">S0</span><span class="o">/</span><span class="n">signal_src</span><span class="p">(</span><span class="n">R10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">TC</span><span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TC</span><span class="o">*</span><span class="n">R1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Sinf</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">E</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="conc_src">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_src.html#dcmri.conc_src">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_src</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">TC</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">T10</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">r1</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">n0</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration of a saturation-recovery sequence with a center-encoded readout.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        S (array-like): Signal in arbitrary units.</span>
+<span class="sd">        TC (float): Time (sec) between the saturation pulse and the acquisition of the k-space center.</span>
+<span class="sd">        T10 (float): baseline T1 value in sec.</span>
+<span class="sd">        r1 (float, optional): Longitudinal relaxivity in Hz/M. Defaults to 0.005.</span>
+<span class="sd">        n0 (int, optional): Baseline length. Defaults to 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Concentration in M, same length as S.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">        We generate some signals from ground-truth concentrations, then reconstruct the concentrations and check against the ground truth:</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">        :include-source:</span>
+
+<span class="sd">        &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import dcmri as dc</span>
+
+<span class="sd">        First define some constants:</span>
+
+<span class="sd">        &gt;&gt;&gt; T10 = 1         # sec</span>
+<span class="sd">        &gt;&gt;&gt; TC = 0.2        # sec</span>
+<span class="sd">        &gt;&gt;&gt; r1 = 0.005      # Hz/M</span>
+
+<span class="sd">        Generate ground truth concentrations and signal data:</span>
+
+<span class="sd">        &gt;&gt;&gt; t = np.arange(0, 5*60, 0.1)     # sec</span>
+<span class="sd">        &gt;&gt;&gt; C = 0.003*(1-np.exp(-t/60))     # M</span>
+<span class="sd">        &gt;&gt;&gt; R1 = 1/T10 + r1*C               # Hz</span>
+<span class="sd">        &gt;&gt;&gt; S = dc.signal_src(R1, 100, TC)  # au</span>
+
+<span class="sd">        Reconstruct the concentrations from the signal data:</span>
+
+<span class="sd">        &gt;&gt;&gt; Crec = dc.conc_src(S, TC, T10, r1)</span>
+
+<span class="sd">        Check results by plotting ground truth against reconstruction:</span>
+
+<span class="sd">        &gt;&gt;&gt; plt.plot(t/60, 1000*C, &#39;ro&#39;, label=&#39;Ground truth&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; plt.plot(t/60, 1000*Crec, &#39;b-&#39;, label=&#39;Reconstructed&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; plt.title(&#39;SRC signal inverse&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; plt.xlabel(&#39;Time (min)&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; plt.ylabel(&#39;Concentration (mM)&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; plt.legend()</span>
+<span class="sd">        &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># S = S0*(1-exp(-TC*R1))</span>
+    <span class="c1"># S/Sb = (1-exp(-TC*R1))/(1-exp(-TC*R10))</span>
+    <span class="c1"># (1-exp(-TC*R10))*S/Sb = 1-exp(-TC*R1)</span>
+    <span class="c1"># 1-(1-exp(-TC*R10))*S/Sb = exp(-TC*R1)</span>
+    <span class="c1"># ln(1-(1-exp(-TC*R10))*S/Sb) = -TC*R1</span>
+    <span class="c1"># -ln(1-(1-exp(-TC*R10))*S/Sb)/TC = R1</span>
+    <span class="n">Sb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">S</span><span class="p">[:</span><span class="n">n0</span><span class="p">])</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TC</span><span class="o">/</span><span class="n">T10</span><span class="p">)</span>
+    <span class="n">R1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">E</span><span class="p">)</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">Sb</span><span class="p">)</span><span class="o">/</span><span class="n">TC</span>	
+    <span class="k">return</span> <span class="p">(</span><span class="n">R1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T10</span><span class="p">)</span><span class="o">/</span><span class="n">r1</span> </div>
+
+
+
+<div class="viewcode-block" id="signal_lin">
+<a class="viewcode-back" href="../../generated/api/dcmri.signal_lin.html#dcmri.signal_lin">[docs]</a>
+<span class="k">def</span> <span class="nf">signal_lin</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="n">S0</span><span class="p">:</span><span class="nb">float</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Signal for any sequence operating in the linear regime.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        R1 (array-like): Longitudinal relaxation rate in 1/sec.</span>
+<span class="sd">        S0 (float): Signal scaling factor (arbitrary units).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Signal in arbitrary units, of the same length as R1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">R1</span></div>
+
+
+
+<div class="viewcode-block" id="conc_lin">
+<a class="viewcode-back" href="../../generated/api/dcmri.conc_lin.html#dcmri.conc_lin">[docs]</a>
+<span class="k">def</span> <span class="nf">conc_lin</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">T10</span><span class="p">,</span> <span class="n">r1</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">n0</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concentration for any sequence operating in the linear regime.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        S (array-like): Signal in arbitrary units.</span>
+<span class="sd">        T10 (float): baseline T1 value in sec.</span>
+<span class="sd">        r1 (float, optional): Longitudinal relaxivity in Hz/M. Defaults to 0.005.</span>
+<span class="sd">        n0 (int, optional): Baseline length. Defaults to 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: Concentration in M, same length as S.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Sb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">S</span><span class="p">[:</span><span class="n">n0</span><span class="p">])</span>
+    <span class="n">R10</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">T10</span>
+    <span class="n">R1</span> <span class="o">=</span> <span class="n">R10</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">Sb</span>	<span class="c1">#relaxation rate in 1/msec</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">R1</span> <span class="o">-</span> <span class="n">R10</span><span class="p">)</span><span class="o">/</span><span class="n">r1</span> </div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, dcmri maintainers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
